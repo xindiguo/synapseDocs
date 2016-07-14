@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.1
+install:
+  - bundle install
+  - npm install
+script:
+  - bundle exec jekyll build
+#whitelist
+branches:
+  only:
+    - master
+after_success: bundle exec s3_website push
